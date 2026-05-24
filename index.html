@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthHuby - Free Health Tips, BMI Calculator</title>
+    <meta name="description" content="HealthHuby pe BMI check karein, free health tips parhein. Sugar, BP, fitness ki maloomat.">
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif}
+        body {background:#f8f9fa; color:#333; line-height:1.6}
+        header {background:#2a9d8f; color:white; padding:25px 15px; text-align:center}
+        nav {background:#264653; padding:12px; text-align:center}
+        nav a {color:white; margin:0 12px; text-decoration:none; font-size:15px}
+        .container {max-width:1100px; margin:20px auto; padding:0 15px}
+        .card {background:white; padding:25px; margin:20px 0; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+        h1,h2 {color:#264653} h2 {margin-bottom:15px}
+        input, button {padding:12px; margin:8px 0; width:100%; border:1px solid #ddd; border-radius:5px}
+        button {background:#e76f51; color:white; border:none; cursor:pointer; font-weight:bold}
+        .result {background:#e9f5f3; padding:15px; margin-top:12px; border-radius:5px}
+        .disclaimer {background:#fff3cd; padding:15px; border-left:4px solid #ffc107; font-size:14px; margin:15px 0}
+        footer {background:#264653; color:white; text-align:center; padding:20px; margin-top:40px; font-size:14px}
+        footer a {color:#2a9d8f; margin:0 10px}
+    </style>
+</head>
+<body>
+<header><h1>HealthHuby</h1><p>Your Daily Health Hub - Tips, Tools & Info</p></header>
+<nav>
+    <a href="./">Home</a>
+    <a href="#bmi">BMI Calculator</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy-policy.html">Privacy</a>
+    <a href="blog.html">Blog</a>
+</nav>
+<div class="card">
+    <h2>Latest Health Articles 📚</h2>
+    <p><a href="/sugar-kam-karne-ke-tareeqe.html">1.Easy Ways to Lower Blood Sugar Naturally</a></p>
+     <p><a href="/Why-am-i-always-tired.html">2. Why am I always tired</a></p>
+    
+</div>
+<div class="container">
+    <div class="card">
+        <h2>Welcome to HealthHuby!</h2>
+        <p>"At HealthHuby, you will find health information in simple, easy-to-understand language. Use our BMI calculator and read helpful tips for a better lifestyle."</p>
+        <div class="disclaimer"><strong>Disclaimer:</strong> The information on this website is for educational purposes only and is not intended as medical advice. Always consult a qualified healthcare professional for any medical concerns. HealthHuby does not provide medical diagnosis or treatment.</div>
+    </div>
+    <div class="card" id="bmi">
+        <h2>Free BMI Calculator</h2>
+        <input type="number" id="height" placeholder="Height in cm - e.g 170">
+        <input type="number" id="weight" placeholder="Weight in kg - e.g 65">
+        <button onclick="calcBMI()">Calculate BMI</button>
+        <div class="result" id="bmiResult">Your BMI will be shown here.</div>
+    </div>
+</div>
+<footer>
+    <p>© 2026 HealthHuby | <a href="privacy-policy.html">Privacy Policy</a> | <a href="disclaimer.html">Disclaimer</a> | <a href="contact.html">Contact</a></p>
+    <p>Content for informational purposes only. Not medical advice.</p>
+</footer>
+<script>
+function calcBMI(){
+    let h = document.getElementById('height').value / 100;
+    let w = document.getElementById('weight').value;
+    if(h<=0 || w<=0){alert('Please enter valid height and weight'); return;}
+    let bmi = (w / (h*h)).toFixed(1);
+    let cat = bmi < 18.5 ? 'Underweight' : bmi < 24.9 ? 'Normal Weight' : bmi < 29.9 ? 'Overweight' : 'Obese';
+    document.getElementById('bmiResult').innerHTML = 'Your BMI: <strong>' + bmi + '</strong> - Category: <strong>' + cat + '</strong><br><small>Please consult a doctor for health advice.</small>';
+}
+</script></body></html>
